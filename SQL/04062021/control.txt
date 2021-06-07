@@ -1,0 +1,105 @@
+create database LocalAiep2 character set utf8;
+use LocalAiep2;
+create table Persona(
+     Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	 Nombre varchar(50)
+    );
+    
+create table vehiculo(
+     Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	 Marca varchar(30),
+     Modelo varchar(50)
+
+    );
+alter table Persona add column Edad int;
+alter table Persona add column direccion varchar(200); 
+alter table vehiculo add column Patente int;
+alter table vehiculo add column aux int;
+ 
+alter table vehiculo modify Patente varchar(10);
+alter table vehiculo drop column aux;
+    
+
+insert into Persona (Nombre,edad,direccion) values ("Francisco",46,"valparaiso");
+insert into Persona (Nombre,edad,direccion) values ("Nicoletta",21,"valparaiso");
+select * from persona;
+insert into vehiculo (Marca,Modelo,Patente) values ("Ford","Escape","aahh88");
+insert into vehiculo (marca,Modelo,Patente) values ("Hummer","h1","aapp73");
+select * from vehiculo;    
+
+//-----------------------------------------------------------------------------
+
+
+create database LocalAiep3 character set utf8;
+use LocalAiep3;
+
+create table Empleado(
+     Idempleado int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	 Nombre varchar(50),
+     apellidop varchar(50),
+     apellidom varchar(50),
+     edad int,
+     departamento varchar(50),
+     cargo varchar(50),
+     sueldo int,
+     fechaingreso date
+    );
+    
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("Francisco","Monroy","Herrera",46,"gerencia","gerente",3000000,'20170701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("Mario","jofre","xxxx",40,"informatica","jefe",1000000,'20210701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("pepito","paga","doble",17,"sg","junior",250000,'20210701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("antonia","Monroy","m",21,"ingenieria","jefe",600000,'20210501');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("valeriia","Monroy","m",46,"diseño","jefe",600000,'20210201');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("gladys","herrera","godoy",50,"contabilidad","gerente",2000000,'20150901');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("maria","reyes","carrasco",35,"sg","gerente",1000000,'20160101');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("damian","Monroy","m",35,"ingenieria","jefe",600000,'20170401');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("juanita","la","loca",46,"seguridad","jefe",600000,'20161201');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("adolfo","el","gato",24,"seguridad","guardia",200000,'20170101');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("maria","marin","",43,"diseño","diseñadora",300000,'20130701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("pablo","escobar","oviedo",50,"seguridad","guardia",350000,'20100701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("francisco","drake","",35,"ingenieria","ingeniero",300000,'20150301');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("miguel","wittman","",46,"informatica","ingeniero",300000,'20180701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("leonardo","davinci","",46,"informatica","ingeniero",1000000,'20170701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("trajano","dacico","augusto",55,"ingenieria","ingeniero",3900000,'20170701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("isabel","pavlova","",46,"diseño","asistente",300000,'20161201');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("anastasia","romanov","heredia",38,"diseño","diseñadora",1000000,'20170701');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("scarlet","johansson","",41,"gerencia","secretaria",1000000,'20170901');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("publio","cornelio","escipion",48,"informatica","ingeniero",1000000,'20171001');
+insert into Empleado (nombre,apellidop,apellidom,edad,departamento,cargo,sueldo,fechaingreso) values("alexis","jorquera","vidal",37,"ingenieroa","soporte",7000000,'20160901');
+select * from empleado; 
+    
+create table libro(
+     Idlibro int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	 nombre varchar(30),
+     autor varchar(50),
+     editorial varchar(50),
+     edicion varchar(50),
+     anopublicacion int,
+	 categoria varchar(50),
+     ejemplares int
+     );
+     
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("hijo del consul","posteguillo","planeta","I",2017,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("traicion de roma","posteguillo","planeta","I",2018,"novelas","3");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("la legion maldita","posteguillo","planeta","I",2020,"novelas","4");    
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("asesinos del emperador","posteguillo","planeta","II",2020,"novelas","7");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("la legion perdida","posteguillo","planeta","II",2020,"novelas","6");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("circo maximo","posteguillo","planeta","II",2021,"novelas","8");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("barbarus","massimiliano","españa","III",2015,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("ultima roma","valdes","españo","I",2001,"novelas","3");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("centurion de la calavera","santiago","global","II",2013,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("mago de mesopotamia","santiago","global","II",2014,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("espada esmeralda","santiago","global","II",2015,"novelas","3");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("lobos del aguila","xxx","universal","I",2015,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("yo, julia","posteguillo","planeta","I",2012,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("angel d ela muerte","xxx","universal","I",2018,"novelas","3");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("roma victoriosa","xxx","planeta","I",2020,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("templarios","juan jesus","planeta","I",2001,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("una noche de invierno","xxx","universal","I",2010,"novelas","3");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("lo que el hielo atrapa","cone","planeta","I",2008,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("legion de los inmortales","manfredi","planeta","I",2014,"novelas","4");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("el secreto del dresden","no recuerdo","universo","I",2012,"novelas","3");
+insert into libro(nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values ("dracula","coppola","planeta","I",1990,"novelas","4");
+select * from libro;
+
+

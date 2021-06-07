@@ -1,0 +1,21 @@
+
+use LocalAiep3;
+select * from empleado;
+select  nombre,apellidop,apellidom from empleado;
+select * from empleado where sueldo>1000000;
+select departamento,count(departamento) from empleado group by departamento;
+select * from libro;
+select nombre,autor from libro;
+select autor,count(autor) from libro group by autor;
+select nombre,ejemplares from libro order by ejemplares desc;
+select nombre, autor from libro where ejemplares>2;
+
+insert into libro (nombre,autor,editorial,edicion,anopublicacion,categoria,ejemplares) values('eliminar','eliminado','prueba','0',2021,'pruebas',0);
+select * from libro;
+delete from libro where idlibro=22;
+
+select * from empleado where sueldo>200000 and departamento='gerencia';
+select * from empleado where sueldo<500000 or departamento='sg';
+select * from empleado;
+select * from empleado where cargo in('gerente','jefe');
+select * from empleado where edad in(40,42,44,46,48);

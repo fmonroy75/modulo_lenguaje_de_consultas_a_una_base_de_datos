@@ -1,0 +1,25 @@
+create database LocalAiep character set utf8;
+use LocalAiep;
+create table curso(
+     Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	 Nombre varchar(50)
+    );
+    
+create table alumnos(
+     Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	 Nombre varchar(150),
+     apepat varchar(50),
+     apemat varchar(150),
+     aux int
+    );
+    
+alter table alumnos add id_curso int;
+alter table alumnos modify apepat varchar(150);
+alter table alumnos drop column aux;
+    
+create table xxx(
+     Id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	 Nombre varchar(50)
+    );
+      
+drop table xxx;
