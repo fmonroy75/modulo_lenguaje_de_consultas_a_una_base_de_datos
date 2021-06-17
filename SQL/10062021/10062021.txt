@@ -1,0 +1,10 @@
+use LocalAiep3;
+select * from empleado order by sueldo desc;
+select nombre,apellidop,apellidom,cargo,departamento,sueldo from empleado where sueldo in (select max(sueldo) from empleado) ;
+
+select nombre,apellidop,apellidom,cargo,departamento,sueldo from empleado where sueldo in (select min(sueldo) from empleado) ;
+
+select departamento,count(nombre) from empleado group by departamento;
+select sum(sueldo) from empleado;
+select editorial,count(ejemplares) from libro group by editorial;
+select sum(ejemplares) from libro;

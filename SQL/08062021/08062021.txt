@@ -1,0 +1,19 @@
+
+use LocalAiep3;
+select * from empleado;
+select nombre, apellidop,apellidom, sueldo,departamento from empleado where sueldo>500000 and departamento='ingenieria';
+select * from empleado where departamento='informatica';
+
+
+select * from libro;
+select * from libro where ejemplares>5;
+select * from libro where autor='posteguillo' and edicion='I';
+select distinctrow autor from libro where edicion in ('I','II','III');
+
+select distinctrow autor from libro where edicion not in ('I');
+select * from empleado where departamento<>'informatica';
+select * from empleado where departamento<>'informatica' and sueldo >600000 and departamento not in ('gerencia,contabilidad');
+select * from empleado where sueldo between 500000 and 1500000;
+select * from libro where anopublicacion between 1900 and 2010;
+select * from empleado where departamento like 'ing%';
+select * from empleado where apellidom like '%us%';

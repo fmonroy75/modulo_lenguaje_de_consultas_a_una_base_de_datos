@@ -1,0 +1,37 @@
+select * from libro;
+select * from libro order by nombre desc;
+select * from libro order by autor;
+select * from libro order by ejemplares;
+select * from libro order by anopublicacion desc;
+select count(nombre),autor from libro group by autor;
+select min(ejemplares),nombre,autor from libro group by autor;
+select max(ejemplares),nombre,autor from libro group by autor;
+select max(anopublicacion),categoria from libro group by categoria;
+select * from libro group by autor;
+
+
+select * from libro where editorial not in ('universo','antartica') ;
+--update libro set ejemplares=ejemplares*10 where idlibro>=1;
+select nombre,editorial,ejemplares from libro where ejemplares between 50 and 100;
+select * from libro where nombre like 'a%';
+
+select * from empleado;
+select * from empleado order by nombre;
+select * from empleado order by apellidop desc;
+select * from empleado order by cargo;
+select * from empleado order by fechaingreso desc;
+select count(nombre), departamento from empleado group by departamento;
+select min(sueldo), departamento from empleado group by departamento;
+select max(sueldo), departamento from empleado group by departamento;
+select count(nombre), cargo from empleado group by cargo;
+select avg(sueldo) from empleado;
+select avg(sueldo),departamento from empleado group by departamento order by departamento;
+
+
+
+
+
+select nombre, apellidop,cargo from empleado where sueldo between 550000 and 750000;
+select nombre, apellidoP, apellidoM, cargo, departamento , edad from empleado where departamento <>'gerencia';
+
+

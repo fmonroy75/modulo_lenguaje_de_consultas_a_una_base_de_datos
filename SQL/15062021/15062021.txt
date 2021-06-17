@@ -1,0 +1,128 @@
+use mydb;
+select * from tbl_centro;
+insert  into tbl_centro (descripcion) values ("udla"); 
+
+select * from tbl_carreras;
+insert  into tbl_carreras (id_centro,descripcion) values (1,"ingenieria comercial"); 
+insert  into tbl_carreras (id_centro,descripcion) values (1,"ingenieria en informatica");
+insert  into tbl_carreras (id_centro,descripcion) values (1,"ingenieria civil industrial");
+update tbl_carreras set descripcion="medicina" where id_carreras=4;
+
+select * from tbl_semestre;
+insert into tbl_semestre (id_carrera,descripcion) values (1,"semestre 1");
+insert into tbl_semestre (id_carrera,descripcion) values (1,"semestre 2");
+insert into tbl_semestre (id_carrera,descripcion) values (1,"semestre 3");
+insert into tbl_semestre (id_carrera,descripcion) values (1,"semestre 4");
+insert into tbl_semestre (id_carrera,descripcion) values (1,"semestre 5");
+insert into tbl_semestre (id_carrera,descripcion) values (1,"semestre 6");
+insert into tbl_semestre (id_carrera,descripcion) values (2,"semestre 1");
+insert into tbl_semestre (id_carrera,descripcion) values (2,"semestre 2");
+insert into tbl_semestre (id_carrera,descripcion) values (2,"semestre 3");
+insert into tbl_semestre (id_carrera,descripcion) values (2,"semestre 4");
+insert into tbl_semestre (id_carrera,descripcion) values (2,"semestre 5");
+insert into tbl_semestre (id_carrera,descripcion) values (2,"semestre 6");
+insert into tbl_semestre (id_carrera,descripcion) values (3,"semestre 1");
+insert into tbl_semestre (id_carrera,descripcion) values (3,"semestre 2");
+insert into tbl_semestre (id_carrera,descripcion) values (3,"semestre 3");
+insert into tbl_semestre (id_carrera,descripcion) values (3,"semestre 4");
+insert into tbl_semestre (id_carrera,descripcion) values (3,"semestre 5");
+insert into tbl_semestre (id_carrera,descripcion) values (3,"semestre 6");
+insert into tbl_semestre (id_carrera,descripcion) values (3,"semestre 7");
+insert into tbl_semestre (id_carrera,descripcion) values (3,"semestre 8");
+insert into tbl_semestre (id_carrera,descripcion) values (4,"semestre 1");
+insert into tbl_semestre (id_carrera,descripcion) values (4,"semestre 2");
+insert into tbl_semestre (id_carrera,descripcion) values (4,"semestre 3");
+insert into tbl_semestre (id_carrera,descripcion) values (4,"semestre 4");
+insert into tbl_semestre (id_carrera,descripcion) values (4,"semestre 5");
+insert into tbl_semestre (id_carrera,descripcion) values (4,"semestre 6");
+insert into tbl_semestre (id_carrera,descripcion) values (4,"semestre 7");
+insert into tbl_semestre (id_carrera,descripcion) values (4,"semestre 8");
+
+1-7-13
+select * from tbl_asignaturas;
+alter table tbl_asignaturas 
+modify column periodo varchar(6);
+
+
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(1,1,"ingles","202101",1);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(2,1,"literatura","202101",1);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(3,1,"frances","202101",1);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(4,1,"algebra","202101",2);
+
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(5,7,"ingles","202101",1);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(6,7,"calculo","202101",1);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(7,7,"intruduccion a la computacion","202101",3);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(8,7,"algebra","202101",2);
+
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(9,13,"ingles","202101",1);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(10,13,"calculo","202101",2);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(11,13,"intruduccion a la computacion","202101",3);
+insert into tbl_asignaturas (id_asignatura,id_semestre,descripcion,periodo,id_profesor) values(12,13,"algebra","202101",2);
+
+
+
+select * from tbl_alumnos;
+insert into tbl_alumnos (id_alumno,nombre,apepat,apemat) values(1,"valeriia","monroy","medchuk");
+insert into tbl_alumnos (id_alumno,nombre,apepat,apemat) values(2,"damian","monroy","medchuk");
+insert into tbl_alumnos (id_alumno,nombre,apepat,apemat) values(3,"antonia","monroy","medchuk");
+insert into tbl_alumnos (id_alumno,nombre,apepat,apemat) values(4,"pepito","gonzalez","");
+
+select * from tbl_notas_alumno;
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(1,1,9,70);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(2,1,10,60);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(3,1,11,60);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(4,1,12,50);
+
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(5,2,5,70);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(6,2,6,60);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(7,2,7,70);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(8,2,8,70);
+
+
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(9,3,1,70);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(10,3,2,70);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(11,3,3,60);
+insert into tbl_notas_alumno(id_notas,id_alumno,id_asignatura,tbl_notas_alumnocol) values(12,3,4,70);
+
+
+
+select * from tbl_profesores;
+insert into tbl_profesores (nombre,apepat,apemat,fechaingreso,titulo) values("inna","medchuk","",20151201,"linguista");
+insert into tbl_profesores (nombre,apepat,apemat,fechaingreso,titulo) values("Francisco","monroy","h",20200101,"ingeniero");
+insert into tbl_profesores (nombre,apepat,apemat,fechaingreso,titulo) values("Mauricio","sajama","",20210101,"ingeniero");
+
+create view notas_asignatura as
+select a.descripcion asignatura,nombre,apepat,apemat,tbl_notas_alumnocol from tbl_asignaturas a, tbl_alumnos b, tbl_notas_alumno c
+where a.id_asignatura=c.id_asignatura and c.id_alumno=b.id_alumno;
+
+create view asignaturas_carrera as
+select a.descripcion asignatura,b.descripcion carrera,c.descripcion semestre from tbl_asignaturas a, tbl_carreras b,tbl_semestre c
+where b.id_carreras=c.id_carrera and a.id_semestre=c.id_semestre;
+
+select tbl_notas_alumnocol,id_alumno,count(id_alumno) from tbl_notas_alumno
+where tbl_notas_alumnocol>(select avg(tbl_notas_alumnocol) from tbl_notas_alumno)
+ group by id_alumno;
+ 
+select avg(tbl_notas_alumnocol) from tbl_notas_alumno;
+
+use ej1tienda;
+select * from tblcliente;
+insert into tblcliente (nombre,direccion,telefono) values("maria","santiago","5555");
+
+select * from tblencventa;
+
+select * from tbldetventa;
+
+select * from tblenccompra;
+insert into tblenccompra(iddocumento,idproveedor,fecha) values(1,1,20210601);
+insert into tblenccompra(iddocumento,idproveedor,fecha) values(2,1,20210601);
+select * from tbldetcompra;
+insert into tbldetcompra (iddocumento,idproveedor,idproducto,cantidad,precio)values(1,1,1,10,5000);
+insert into tbldetcompra (iddocumento,idproveedor,idproducto,cantidad,precio)values(2,1,2,5,5000);
+select * from tblproductos;
+insert into tblproductos(idproducto,descripcion,precio,stock)values(1,"notebook lenovo",1000000,10);
+insert into tblproductos(idproducto,descripcion,precio,stock)values(2,"desktop hp",700000,5);
+
+select * from tblproveedor;
+insert into tblproveedor(nombre,direccion,telefono) values("china","chinatown","5555555");
+insert into tblproveedor(nombre,direccion,telefono) values("rusia","moscow","795555555");
