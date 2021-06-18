@@ -1,0 +1,98 @@
+
+
+
+select * from academia;
+insert into academia(nombre,telefono,mail)values('Languagelife','982307788','982307788');
+
+select * from idiomas;
+insert into idiomas(descripcion,idacademia) values('ingles',1);
+insert into idiomas(descripcion,idacademia) values('frances',1);
+insert into idiomas(descripcion,idacademia) values('ruso',1);
+insert into idiomas(descripcion,idacademia) values('español',1);
+
+select * from profesor;
+insert into profesor (nombre,apellido,valorhora)values('inna','monroy','15000');
+insert into profesor (nombre,apellido,valorhora)values('francisco','monroy','12000');
+insert into profesor (nombre,apellido,valorhora)values('roxana','ivanova','10000');
+
+
+select * from estudiantes;
+insert into estudiantes(nombres,apellidos,mail)values('camila','osorio','xxx@renolit.cl');
+insert into estudiantes(nombres,apellidos,mail)values('valentina','ivanova','xxx@sushi.cl');
+insert into estudiantes(nombres,apellidos,mail)values('kurt','russel','xxx@kurt.cl');
+insert into estudiantes(nombres,apellidos,mail)values('irina','kurnikova','xxx@rr.cl');
+insert into estudiantes(nombres,apellidos,mail)values('valeria','xxx','xxx@x.cl');
+insert into estudiantes(nombres,apellidos,mail)values('alina','ivanova','xxx@ruuu.cl');
+insert into estudiantes(nombres,apellidos,mail)values('carmen','pradenas','xxx@rr.cl');
+insert into estudiantes(nombres,apellidos,mail)values('jj','xx','xxx@xx.cl');
+
+update estudiantes set nombres='kurt',apellidos='russel',mail='xxx@kurt.cl' where idestudiantes=3;
+update estudiantes set nombres='irina',apellidos='kurnikova',mail='xxx@rr.cl' where idestudiantes=4;
+update estudiantes set nombres='valeria',apellidos='xxx',mail='xxx@x.cl' where idestudiantes=5;
+update estudiantes set nombres='alina',apellidos='ivanova',mail='xxx@ruuu.cl' where idestudiantes=6;
+update estudiantes set nombres='carmen',apellidos='pradenas',mail='xxx@rr.cl'  where idestudiantes=7;
+update estudiantes set nombres='jj',apellidos='xx',mail='xxx@xx.cl'  where idestudiantes=8;
+update estudiantes set nombres='maria',apellidos='herrera',mail='xxx@xx.cl'  where idestudiantes=9;
+
+
+
+select * from idiomas_has_profesor;
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(1,1,1);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(3,1,2);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(1,1,2);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(4,2,4);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(4,3,5);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(4,2,6);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(1,1,6);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(2,1,7);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(1,1,7);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(1,1,8);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(3,3,8);
+insert into idiomas_has_profesor (idiomas_ididiomas,profesor_idprofesor,estudiantes_idestudiantes)values(3,3,9);
+
+
+
+-- listado de estudiantes 
+select * from estudiantes;
+
+
+-- estuadiantes idiomas
+select nombres,apellidos,descripcion from estudiantes a , idiomas_has_profesor b, idiomas c
+where a.idEstudiantes=b.Estudiantes_idEstudiantes
+and b.Idiomas_idIdiomas=c.ididiomas;
+
+-- estudiantes idiomas y profesor
+select nombres,apellidos,descripcion,Nombre as 'nombre profesor', apellido as 'apellido profesor'
+ from estudiantes a , idiomas_has_profesor b, idiomas c, profesor d
+where a.idEstudiantes=b.Estudiantes_idEstudiantes
+and b.Idiomas_idIdiomas=c.ididiomas
+and b.profesor_idProfesor=d.idProfesor;
+
+-- cuantos estudiantes por profesor
+select count(a.estudiantes_idestudiantes), Nombre as 'nombre profesor', apellido as 'apellido profesor' 
+from idiomas_has_profesor a, profesor b
+where a.Profesor_idProfesor=b.idProfesor
+group by Profesor_idProfesor;
+
+
+ create view estadistica_de_idiomas as
+select count(a.estudiantes_idestudiantes), descripcion 
+from idiomas_has_profesor a, idiomas b
+where a.idiomas_ididiomas=b.ididiomas
+group by descripcion
+order by count(a.estudiantes_idestudiantes) desc
+;
+commit;
+
+select * from estadistica_de_idiomas;
+
+
+create view estudiantes_mas_cursos as
+select count(Idiomas_idIdiomas), concat(nombres,' ', apellidos) 
+from idiomas_has_profesor a, estudiantes b
+where a.Estudiantes_idEstudiantes=b.idEstudiantes
+group by Estudiantes_idEstudiantes
+having count(Idiomas_idIdiomas)>1
+order by count(Idiomas_idIdiomas) desc;
+commit;
+select * from estudiantes_mas_cursos;
